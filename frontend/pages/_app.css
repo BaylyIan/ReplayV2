@@ -1,0 +1,51 @@
+@import url("https://cloud.typography.com/7641036/6489792/css/fonts.css");
+
+html, body {
+    height: 100%;
+    font-family: "Ideal Sans SSm A", "Ideal Sans SSm B";
+    font-style: normal;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+  h1 {
+    font-family: "Archer SSm A", "Archer SSm B";
+    font-style: normal;
+    font-weight: 800;
+  }
+  h2 {
+    font-family: "Archer SSm A", "Archer SSm B";
+    font-style: normal;
+    font-size: 19px;
+    font-weight: 800;
+  }
+  h3 {
+    font-family: "Archer SSm A", "Archer SSm B";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+  }
+  h4 {
+    font-family: "Archer SSm A", "Archer SSm B";
+    font-style: normal;
+    font-size: 10px;
+    font-weight: normal;
+  }
+  h5 {
+    font-family: "Archer SSm A", "Archer SSm B";
+    font-style: italic;
+    font-weight: 500;
+    font-size: 10px;
+  }
+  h6 {
+    font-family: "Archer SSm A", "Archer SSm B";
+    font-style: bold;
+    font-weight: 800;
+    font-size: 12px;
+    color: #00000050;
+  }
+  p {
+    font-family: "Ideal Sans SSm A", "Ideal Sans SSm B";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 13px;
+  };
