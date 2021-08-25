@@ -3,6 +3,7 @@ import { Router, Switch, Route, Link } from "react-router-dom";
 import { PageContext } from "../utils/context";
 
 import { Main, Left, Right } from '../pageStyles/Home/style'
+import Form from '../components/Form'
 
 import jsCookie from 'js-cookie';
 
@@ -44,10 +45,10 @@ export default function Home() {
   return (
     <Main>
       <Left>
-     
+      
       </Left>
       <Right>
-       
+        <Form />
       </Right>
     </Main>
   )
