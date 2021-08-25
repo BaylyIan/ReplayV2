@@ -1,15 +1,22 @@
 import React from 'react';
-import PropTypes from 'prop-types'; 
+import PropTypes from 'prop-types';
 import { Container, InputField } from './style'
+import { Theme } from '../../styles/theme'
 
-const Input = ({}) => {
-  return (
-    <Container>
-        <InputField 
-            fontSize={'16px'}
-        />
-    </Container>
-  );
+import { MdMail } from 'react-icons/md'
+
+
+const Input = ({ icon, placeholder, value }) => {
+    return (
+        <Container>
+            {icon}
+            <InputField
+                fontSize={'16px'}
+                placeholder={placeholder}
+                value={value}
+            />
+        </Container>
+    );
 }
 
 Input.defaultProps = {
