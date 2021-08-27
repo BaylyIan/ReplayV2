@@ -1,7 +1,7 @@
 DROP DATABASE IF EXISTS replay_music;
 CREATE DATABASE replay_music;
 
-DROP USER IF EXISTS replay_music_user@localhost;
+DROP USER IF EXISTS ian@localhost;
 
 -- CREATE USER 'replay_music_user'@'https://replay-music-app.herokuapp.com/' IDENTIFIED WITH mysql_native_password BY 'NewApp#1';
 -- GRANT ALL PRIVILEGES ON replay_music.* TO 'replay_music_user'@'https://replay-music-app.herokuapp.com/';

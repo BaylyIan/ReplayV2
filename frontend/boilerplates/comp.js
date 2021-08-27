@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 
 const CompName = ({}) => {
   return (
-    <div></div>
+    <Container>
+      
+    </Container>
   );
 }
 

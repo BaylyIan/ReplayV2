@@ -8,13 +8,19 @@ const util = require('util')
 const unlinkFile = util.promisify(fs.unlink)
 // const s3 = require('./s3')
 
-const app = express()
+// const app = express()
 
 const multer = require('multer')
 const upload = multer({ dest: 'uploads/' })
 
-app.use(express.json())
+//next.js
+const next = require('next')
+const dev = process.env.NODE_ENV !== 'production'
+const app = next({ dev })
+const handle = app.getRequestHandler()
 
+
+app.use(express.json())
 
 app.use(express.static('build'))
 
@@ -153,7 +159,6 @@ app.post('/api/users/login', (req, res) => {
       const token = jwt.generateToken({ userId: user.id, name: user.name, email: user.email })
       // res.send({ userId: user.id, name: user.name, email: user.email })
       res.send({ token })
-      console.log({token})
   })
 })
 

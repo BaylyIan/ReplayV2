@@ -10,7 +10,9 @@ const Provider = ({children}) => {
     const [user, setUser] = useState()
     
     useEffect(()=>{
+        console.log(sessionStorage.getItem("user"), 'context')
         const userData = sessionStorage.getItem("user");
+        console.log(userData, 'userData')
         setUser(JSON.parse(userData));  
     }, []);
 
