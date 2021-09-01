@@ -9,6 +9,8 @@ export const Container = styled.div`
     box-sizing: border-box;
     border-radius: 7px;
     display:flex;
+    align-items: center;
+    padding-left:10px;
     & > input {
         width:100%;
         height:100%;
@@ -20,7 +22,7 @@ export const Container = styled.div`
 export const InputField = styled.input`
     border: none;
     outline: 0;
-    /* border-bottom: 1px solid #D3D8DD; */
+    padding-left:10px;
     width: 100%;
     color: ${Theme.colors.lightGrey};
     font-size: ${({ fontSize }) => fontSize};
