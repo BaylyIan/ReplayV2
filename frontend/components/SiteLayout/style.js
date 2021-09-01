@@ -86,16 +86,16 @@ export const Indicator = styled.div`
     width:4px;
     height:51px;
     background-color:${Theme.colors.orange};
-    transform:${({ slide }) => slide.one ? 'translateY(0)' : null || slide.two ? 'translateY(122%)' : null || slide.three ? 'translateY(242%)' : null};
+    transform:${({ slide }) => slide === 1 ? 'translateY(0)' : null || slide === 2 ? 'translateY(122%)' : null || slide === 3 ? 'translateY(242%)' : null};
     transition: transform 150ms ease-in-out;
     border-radius: 5px;
     @media (max-width: ${SMALL}){
         height:48px;
-        transform:${({ slide }) => slide.one ? 'translateY(0)' : null || slide.two ? 'translateY(180%)' : null || slide.three ? 'translateY(280%)' : null};
+        transform:${({ slide }) => slide === 1 ? 'translateY(0)' : null || slide === 2 ? 'translateY(180%)' : null || slide === 3 ? 'translateY(280%)' : null};
     }
     @media (max-width: ${MED}){
         height:48px;
-        transform:${({ slide }) => slide.one ? 'translateY(0)' : null || slide.two ? 'translateY(135%)' : null || slide.three ? 'translateY(265%)' : null};
+        transform:${({ slide }) => slide === 1 ? 'translateY(0)' : null || slide === 2 ? 'translateY(135%)' : null || slide === 3 ? 'translateY(265%)' : null};
     }
     `;
 export const ToggleCont = styled.div`

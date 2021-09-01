@@ -4,7 +4,6 @@
 /node_modules
 /.pnp
 .pnp.js
-/local
 
 # testing
 /coverage
@@ -33,6 +32,3 @@ yarn-error.log*
 
 # vercel
 .vercel
-
-# extra
-/package-lock.json
