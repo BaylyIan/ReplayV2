@@ -133,10 +133,11 @@ app.post('/api/create_user', (req, res) => {
           res.send({ error: error.message })
           return
       }
-      // const token = jwt.generateToken({ userId: user.id, name: user.name, email: user.email })
       // res.send({ token })
-      res.send({ userId, name, email })
-  })
+      const token = jwt.generateToken({ userId: userId, name: name, email: email })
+      res.send({ userId, name, email, token})
+      // console.log({ userId, name, email, token }, 'here')
+    })
 })
 
 
