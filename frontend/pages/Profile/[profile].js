@@ -17,7 +17,7 @@ const Profile = ({ }) => {
   //path from nav bar will return prompt to signup if not logged in
   //view other profiles while not logged in
 
-  var page 
+  var page = <Comp />
 
 
 
