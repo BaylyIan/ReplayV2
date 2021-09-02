@@ -3,6 +3,9 @@ import React, { useState, useEffect, useContext } from "react";
 import { PageContext } from "../../utils/context";
 import { useRouter } from 'next/router'
 
+//comps 
+import { Comp } from '../../pageStyles/Profile/style';
+
 const Profile = ({ }) => {
 
   const { user, keyword, loggedIn } = useContext(PageContext)
