@@ -16,7 +16,7 @@ const Register = ({}) => {
   const [toggle, setToggle] = useState(true)
 
   //add user priviledges collumn in db to have basic user, admin, etc. 
-  const { setUser } = useContext(PageContext);
+  const { setUser, setLoggedIn } = useContext(PageContext);
   const router = useRouter()
 
   const handleSubmit = async (e) => {
@@ -38,7 +38,7 @@ const Register = ({}) => {
 
           sessionStorage.setItem("user", JSON.stringify(user.data.result[0]));
           setUser(JSON.parse(sessionStorage.user))
-
+          setLoggedIn(true)
           router.push("/");
 
           break;
@@ -61,7 +61,7 @@ const Register = ({}) => {
 
           sessionStorage.setItem("user", JSON.stringify(_user.data.result[0]));
           setUser(JSON.parse(sessionStorage.user))
-
+          setLoggedIn(true)
           router.push("/");
           break;
       }

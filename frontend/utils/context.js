@@ -5,22 +5,28 @@ export const PageContext = createContext({
     setUser:()=>{},
     keyword:{},
     setKeyword:()=>{},
+    loggedIn:{},
+    setLoggedIn:()=>{},
 })
 
 const Provider = ({children}) => {
 
     const [user, setUser] = useState()
     const [keyword, setKeyword] = useState("");
+    const [loggedIn, setLoggedIn] = useState(false)
     
     useEffect(()=>{
-        // console.log(sessionStorage.getItem("user"), 'context')
         const userData = sessionStorage.getItem("user");
-        // console.log(userData, 'userData')
-        setUser(JSON.parse(userData));  
+        setUser(JSON.parse(userData)); 
+        if(window.sessionStorage.getItem("token")){
+            setLoggedIn(true)
+          }else{
+            setLoggedIn(false)
+          } 
     }, []);
 
     return (
-        <PageContext.Provider value={{user, setUser, keyword, setKeyword}}>
+        <PageContext.Provider value={{user, setUser, keyword, setKeyword, loggedIn, setLoggedIn}}>
             {children}
         </PageContext.Provider>
     )

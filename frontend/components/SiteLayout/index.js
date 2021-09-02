@@ -17,46 +17,57 @@ import { BsToggleOff, BsToggleOn } from 'react-icons/bs'
 
 const SiteLayout = ({ children }) => {
 
-    const { user, keyword, setKeyword} = useContext(PageContext);
+    const { user, keyword, setKeyword } = useContext(PageContext);
 
     const router = useRouter()
+    const { id, params } = router.query;
+    // console.log(router.route.startsWith('/Profile'), 'params')
 
     // console.log(user, 'siteLay')
 
     const [toggle, setToggle] = useState(true)
-    const [tabs, setTabs] = useState({
-        one: true,
-        two: false,
-        three: false
-    })
+    const [tabs, setTabs] = useState()
     const [pageName, setPageName] = useState("Home")
- 
+
+    const handleTabs = () => {
+        if (router.route.startsWith("/Profile")) {
+            setTabs(3)
+        } else if (router.route.startsWith("/Explore")) {
+            setTabs(2)
+        }
+        else if (router.route.startsWith("/")) {
+            setTabs(1)
+        }
+    }
 
     const selectTab = (tab) => {
         switch (tab) {
-            case tab = 'Home':
-                setTabs({
-                    one: true,
-                    two: false,
-                    three: false
-                })
+            case tab = 1:
                 setPageName("Home")
+                router.push("/")
+                console.log(tabs)
                 break;
-            case tab = 'Explore':
-                setTabs({
-                    one: false,
-                    two: true,
-                    three: false
-                })
+            case tab = 2:
                 setPageName("Explore")
+                router.push('/Explore')
                 break;
-            case tab = 'Profile':
-                setTabs({
-                    one: false,
-                    two: false,
-                    three: true
-                })
+            case tab = 3:
                 setPageName("Profile")
+                if (user) {
+                    router.push({
+                        pathname: "/Profile/[profile]",
+                        query: {
+                            profile: user.name
+                        },
+                    });
+                } else {
+                    router.push({
+                        pathname: "/Profile/[profile]",
+                        query: {
+                            profile: 'no-user'
+                        },
+                    });
+                }
                 break;
         }
     }
@@ -64,6 +75,11 @@ const SiteLayout = ({ children }) => {
     const handleKeyword = (e) => {
         setKeyword(e.target.value)
     }
+
+    useEffect(() => {
+        handleTabs()
+
+    })
 
     return (
         <>
@@ -79,34 +95,37 @@ const SiteLayout = ({ children }) => {
                         <ItemWrap>
                             <NavItem
                                 icon={<RiHomeLine size={25}
-                                    fill={tabs.one ? Theme.colors.white : Theme.colors.lightGrey} />}
+                                    fill={tabs === 1 ? Theme.colors.white : Theme.colors.lightGrey} />}
                                 toggle={toggle}
-                                selected={tabs.one}
+                                selected={tabs === 1}
                                 text={'Home'}
                                 onClick={() => {
-                                    selectTab('Home')
+                                    setTabs(1)
+                                    selectTab(1)
                                 }}
                             >
                             </NavItem>
                             <NavItem
                                 icon={<RiCompassLine size={25}
-                                    fill={tabs.two ? Theme.colors.white : Theme.colors.lightGrey} />}
+                                    fill={tabs === 2 ? Theme.colors.white : Theme.colors.lightGrey} />}
                                 toggle={toggle}
-                                selected={tabs.two}
+                                selected={tabs === 2}
                                 text={'Explore'}
                                 onClick={() => {
-                                    selectTab('Explore')
+                                    setTabs(2)
+                                    selectTab(2)
                                 }}
                             >
                             </NavItem>
                             <NavItem
                                 icon={<RiUserLine size={25}
-                                    fill={tabs.three ? Theme.colors.white : Theme.colors.lightGrey} />}
+                                    fill={tabs === 3 ? Theme.colors.white : Theme.colors.lightGrey} />}
                                 toggle={toggle}
-                                selected={tabs.three}
+                                selected={tabs === 3}
                                 text={'Profile'}
                                 onClick={() => {
-                                    selectTab('Profile')
+                                    setTabs(3)
+                                    selectTab(3)
                                 }}
                             >
                             </NavItem>
@@ -140,8 +159,8 @@ const SiteLayout = ({ children }) => {
                 <Header toggle={toggle}>
                     <HeaderGradient>
                         <SearchCont>
-                            <PageTitle><h3 style={{color:`${Theme.colors.white}`}}>{pageName}</h3></PageTitle>
-                            <SearchBar onChange={(handleKeyword)}/>
+                            <PageTitle><h3 style={{ color: `${Theme.colors.white}` }}>{pageName}</h3></PageTitle>
+                            <SearchBar onChange={(handleKeyword)} />
                         </SearchCont>
                     </HeaderGradient>
                 </Header>
