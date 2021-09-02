@@ -22,17 +22,21 @@ const Profile = ({ }) => {
 
   var page = <Comp />
 
+  return (
+    <div>
+      
+    </div>
+  )
 
-
-  if(loggedIn){
-    return (
-      {page}
-    )
-  }else{//routed from clicking on someones profile){
-    return (
-      <div style={{display: 'flex', width:'100%', height:'100%', backgroundColor:'red'}}>This is th eexplore page</div>
-    )
-  }
+  // if(loggedIn){
+  //   return (
+  //     {page}
+  //   )
+  // }else{//routed from clicking on someones profile){
+  //   return (
+  //     <div style={{display: 'flex', width:'100%', height:'100%', backgroundColor:'red'}}>This is th profile page</div>
+  //   )
+  // }
 
 }
 
